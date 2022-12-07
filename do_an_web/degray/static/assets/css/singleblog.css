@@ -1,0 +1,13 @@
+.add-to-cartProduct {
+    width: 50%;
+}
+
+@media only screen and (max-width: 768px) {
+    .detail-item>h5>a {
+        font-size:15px;
+    }
+
+    .price-item span {
+        font-size:15px;
+    }
+}

@@ -1,0 +1,125 @@
+{% extends 'default.html' %}
+{% load static %}
+{% block content %}
+    <div class="mainContent">
+        <div class="container">
+            <div class="main">
+                <div class="main-header">
+                    <div class="breadcrumb mt-3">
+                        <div class="container">
+                            <nav class="breadcrumb d-flex justify-content-left">
+                                <span>
+                                    <span class="fs-5">
+                                        <a href="#">Home</a>
+                                        /
+                                        <span class="breadcrumb-last">Giỏ hàng</span>
+                                        /
+                                        <span class="breadcrumb-last">Thanh toán</span>
+                                    </span>
+                                </span>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-content">
+                    <div class="step">
+                        <div class="step-section">
+                            <div class="section-header">
+                                <h2 class="section-title ms-2">Thông tin giao hàng</h2>
+                            </div>
+
+                            <div class="section-content">
+                                <div class="row">
+                                    <div class="col-12 col-md-8">
+                                        <div class="fieldset">
+                                            <form autocomplete="off" method="post" class="field-default">
+                                                <div class="form-outline mb-4 ms-3 me-5">
+                                                    <label class="form-label fw-bold" for="name">Họ và tên</label>
+                                                    <input type="text" name="name" class="form-control"id="form2Example1"/>
+                                                </div>
+                                                <div class="form-outline mb-4 ms-3 me-5">
+                                                    <label class="form-label fw-bold" for="form2Example1">Email</label>
+                                                    <input type="email" name="email" class="form-control"id="form2Example1"/>
+                                                </div>
+                                                <div class="form-outline mb-4 ms-3 me-5">
+                                                    <label class="form-label fw-bold" for="form2Example1">Số điện thoại</label>
+                                                    <input type="tel" name="phone" id="form2Example1" class="form-control" />
+                                                </div>
+                                                <div class="form-outline mb-4 ms-3 me-5">
+                                                    <label class="form-label fw-bold" for="form2Example2">Địa chỉ</label>
+                                                    <textarea type="textarea" name="address" id="form2Example2" class="form-control"></textarea>
+                                                </div>
+                                                <div class="d-flex justify-content-end me-5">
+                                                    <button type="submit" class="btn btn-lg btn-primary btn-block mb-4 fw-bold">Đặt Hàng</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-4">
+                                        <div class="sidebar">
+                                            <div class="list-cart">
+                                                <div class="cart-row">
+                                                    <div class="title-number-cart">
+                                                        Bạn đang có
+                                                        <strong class="count-cart">1 sản phẩm</strong>
+                                                        trong giỏ hàng!
+                                                    </div>
+                                                    <div class="table-cart">
+                                                        <div class="line-item border border-2 rounded-3 mt-3 p-3 row">
+                                                            <div class="col-3 align-self-center">
+                                                                <div class="item-img">
+                                                                    <img src="  //product.hstatic.net/1000281824/product/bed8cb2c9ff5466984b8688daddd21ee_b1b17b83459340908a1bee61d9c3a534_medium.jpeg" alt="Degrey.Madmonks Jacket Biker - JBK" width="100%" height="100%">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-5 align-self-center">
+                                                                <div class="item-info">
+                                                                    <div class="item-title fw-bold">Áo khoác</div>
+                                                                    <div class="item-size fw-bold">s</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-4 align-self-center">
+                                                                <div class="item-total">
+                                                                    <div class="item-total-price text-center pb-1 fw-bold">													
+                                                                        <div class="line-item-total">1,000,000₫</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="total-line">
+                                                <div class="total-price d-flex justify-content-between mb-3">
+                                                    <div class="total-line-name">Tạm tính</div>
+                                                    <div class="total-line-price">
+                                                        <span>1000000 VND</span>
+                                                    </div>
+                                                </div>
+                                                <div class="total-price-ship d-flex justify-content-between">
+                                                    <div class="total-line-name-ship">Phí vận chuyển</div>
+                                                    <div class="total-line-price-ship">
+                                                        <span>30000 VND</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="total-line-footer">
+                                                <div class="total-price-ship d-flex justify-content-between">
+                                                    <div class="total-line-name-ship fs-5">Tổng cộng</div>
+                                                    <div class="total-line-price-ship fs-5">
+                                                        <span>10300000 VND</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div
+{% endblock %}

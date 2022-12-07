@@ -1,0 +1,49 @@
+{% extends 'default.html' %}
+{% load static %}
+{% block content %}
+
+<div class="mainContainer">
+    <div class="container">
+        <div class="breadcrumb mt-3">
+            <nav class="breadcrumb d-flex justify-content-left">
+                <span>
+                    <span class="fs-5">
+                        <a href="#">Home</a>
+                        /
+                        <span class="breadcrumb-last">Danh sách đơn hàng</span>
+                    </span>
+                </span>
+            </nav>
+        </div>
+        <h2 class="">Danh sách đơn hàng của tôi</h2>
+        <hr>
+        <div class="list-order">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Họ tên</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Trạng thái</th>
+                    <th scope="col">Giao hàng dự kiến</th>
+                    <th scope="col">Ngày tạo</th>
+                    <th scope="col">Tổng tiền</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

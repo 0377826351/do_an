@@ -1,0 +1,313 @@
+{% extends 'default.html' %}
+{% load static %}
+{% block content %}
+    <div class="mainContent">
+        <div class="breadcrumb mt-3">
+            <div class="container">
+                <nav class="breadcrumb d-flex justify-content-left">
+                    <span>
+                        <span class="fs-5">
+                            <a href="#">Home</a>
+                            /
+                            <span class="breadcrumb-last">Giới thiệu</span>
+                        </span>
+                    </span>
+                </nav>
+            </div>
+        </div>
+        <div class="productDetail">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="product-container-gallery">
+                            <div class="detail-item-owl owl-carousel owl-theme">
+                                <div class="item">                            
+                                    <img src="{% static 'assets/img/452f3fa9f01c4207a04dee57a966d994_5d5f97a15330417ab13306bf38af0529_large.webp' %} " alt="item">
+                                </div>
+                                <div class="item">                            
+                                    <img src="{% static 'assets/img/452f3fa9f01c4207a04dee57a966d994_5d5f97a15330417ab13306bf38af0529_large.webp' %} " alt="item">
+                                </div>
+                                <div class="item">                            
+                                    <img src="{% static 'assets/img/452f3fa9f01c4207a04dee57a966d994_5d5f97a15330417ab13306bf38af0529_large.webp' %} " alt="item">
+                                </div>
+                                <div class="item">                            
+                                    <img src="{% static 'assets/img/452f3fa9f01c4207a04dee57a966d994_5d5f97a15330417ab13306bf38af0529_large.webp' %} " alt="item">
+                                </div>
+                                <div class="item">                            
+                                    <img src="{% static 'assets/img/452f3fa9f01c4207a04dee57a966d994_5d5f97a15330417ab13306bf38af0529_large.webp' %} " alt="item">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-container-content"></div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="product-container-detail">
+                            <div class="product-heading">
+                                <h1>BALO</h1>
+                            </div>
+                            <div class="product-variants mt-4 mb-3">
+                                <form id="add-item-form" action="" method="post" class="d-flex">		
+                                    <div class="item-qty ">
+                                        <div class="qty quantity-partent d-flex justify-content-center">
+                                        <button type="button" class="qtyminus qty-btn btn btn-lg  border border-2 rounded-1 fs-5">-</button>															
+                                        <input type="text" size="5" name="qty" min="1" value="1" class="tc fs-5 line-item-qty item-quantity border border-2 ms-1 me-1 rounded-1 text-center">
+                                        <button type="button" class="qtyplus qty-btn btn border border-2 rounded-1 fs-5">+</button>														
+                                        </div>
+                                    </div>
+                                    <button type="button" id="add-to-cart" class="add-to-cartProduct button rounded-1 text-white bg-dark btn-addtocart addtocart-modal ms-4 pt-2 pb-2" name="add"><span>Thêm vào giỏ</span></button>
+                                </form>
+                            </div>
+                            <div class="product-policy-detail d-flex">
+                                <div class="item-policy-detail bg-secondary me-3 p-3 mt-4 rounded-3 fw-bold text-center" style="--bs-bg-opacity: 0.3;">
+                                    Freeship đơn hàng giá trị trên 1 triệu đồng
+                                </div>
+                                <div class="item-policy-detail bg-secondary me-3 p-3 mt-4 rounded-3 fw-bold text-center" style="--bs-bg-opacity: 0.3;">
+                                    Đổi hàng chưa qua sử dụng trong vòng 30 ngày
+                                </div>
+                            </div>
+                            <div class="list-item mt-4">
+                                <div class="item-item p-1">  
+                                    <div class="item-name fs-6 d-flex justify-content-between p-1 ">
+                                        <p class="fs-5 align-self-center">Dịch vụ giao hàng</p>
+                                        <i class="fa-solid fa-plus fs-5 align-self-center"></i>
+                                    </div>
+                                    <div class="item-content fs-6 pt-1" style="display:none;">
+                                        <ul class="infoList-deliverly">
+                                            <li class="p-2">
+                                                <span>
+                                                    <img class=" ls-is-cached lazyloaded" data-src="https://file.hstatic.net/1000397797/file/delivery-ico1_f26631929e1b41dab022d9960006297c.svg" src="https://file.hstatic.net/1000397797/file/delivery-ico1_f26631929e1b41dab022d9960006297c.svg" alt="Cam kết 100% chính hãng Degrey">
+                                                </span>
+                                                Cam kết 100% chính hãng Degrey
+                                            </li>
+                                            <li class="p-2">
+                                                <span>
+                                                    <img class=" ls-is-cached lazyloaded" data-src="https://file.hstatic.net/1000397797/file/delivery-ico2_5ea2de2f279b4dbfa10fcb9b9c448b4d.svg" src="https://file.hstatic.net/1000397797/file/delivery-ico2_5ea2de2f279b4dbfa10fcb9b9c448b4d.svg" alt="Giao hàng dự kiến: 
+                                                    Thứ 2 - Thứ 7 từ 9h00 - 17h00">
+                                                </span>
+                                                Giao hàng dự kiến:
+                                                <strong>Thứ 2 - Thứ 7 từ 9h00 - 17h00</strong>
+                                            </li>
+                                            <li class="p-2">
+                                                <span>
+                                                    <img class=" ls-is-cached lazyloaded" data-src="https://file.hstatic.net/1000397797/file/delivery-ico3_dd589d9c49584441a9ef0c2f9300649f.svg" src="https://file.hstatic.net/1000397797/file/delivery-ico3_dd589d9c49584441a9ef0c2f9300649f.svg" alt="Hỗ trợ 24/7
+                                                    Với các kênh chat, email &amp; phone">
+                                                </span>
+                                                Hỗ trợ 24/7
+                                            </li>
+                                            
+                                            
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="item-item p-1">  
+                                    <div class="item-name fs-6 d-flex justify-content-between p-1 ">
+                                        <p class="fs-5 align-self-center">Đổi Hàng</p>
+                                        <i class="fa-solid fa-plus fs-5 align-self-center"></i>
+                                    </div>
+                                    <div class="item-content fs-5 pt-1" style="display:none;">
+                                        <p class="ps-1">Điều kiện đổi hàng:
+                                            <p class="ps-3">
+                                                - Bạn lưu ý giữ lại hoá đơn để đổi hàng trong vòng 30 ngày.
+                                                <br>
+                                                - Đối với mặt hàng giảm giá, phụ kiện cá nhân (áo lót, khẩu trang, vớ ...) không nhận đổi hàng.
+                                                <br>
+                                                - Tất cả sản phẩm đã mua sẽ không được đổi trả lại bằng tiền mặt.
+                                                <br>
+                                                - Bạn có thể đổi size hoặc sản phẩm khác trong 30 ngày (Lưu ý: sản phẩm chưa qua sử dụng, còn tag nhãn và hóa đơn mua hàng.)
+                                                <br>
+                                                - Bạn vui lòng gửi cho chúng mình clip đóng gói và hình ảnh của đơn hàng đổi trả của bạn, nhân viên tư vấn sẽ xác nhận và tiến hành lên đơn đổi trả cho bạn.</p>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="item-item p-1">  
+                                    <div class="item-name fs-6 d-flex justify-content-between p-1 ">
+                                        <p class="fs-5 align-self-center">Khiếu nại</p>
+                                        <i class="fa-solid fa-plus fs-5 align-self-center"></i>
+                                    </div>
+                                    <div class="item-content fs-5 pt-1" style="display:none;">
+                                        <p class="ps-1">Trường hợp khiếu nại:
+                                            <p class="ps-3">
+                                                - Bạn phải có video unbox hàng
+
+                                                - Quay video rõ nét 6 mặt của gói hàng
+                                                
+                                                - Quay rõ: Tên người nhận, mã đơn, địa chỉ, số điện thoại.
+                                                
+                                                - Video không cắt ghép, chỉnh sửa
+                                                
+                                                - Degrey xin không tiếp nhận giải quyết các trường hợp không thỏa các điều kiện trên.</p>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="productDetail-listprod mt-5">
+            <div class="container">
+                <div class="listprod-title text-center">
+                    <h3>Sản Phẩm Liên Quan</h3>
+                </div>
+                <div class="listprod-content mt-4">
+                    <div class="listprod-owl owl-carousel owl-theme">
+                        <div class="item">
+                            <div class="item">
+                                <div class="img-item">
+                                    <img src="{% static 'assets/img/452f3fa9f01c4207a04dee57a966d994_5d5f97a15330417ab13306bf38af0529_large.webp' %} " alt="item">
+                                </div>
+                                <div class="detail-item">
+                                    <h5>
+                                        <a href="">Degrey Double Block Balo - DDBB</a>
+                                    </h5>
+                                    <p class="price-item">
+                                        <span class="price">400,000₫</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="item">
+                                <div class="img-item">
+                                    <img src="{% static 'assets/img/452f3fa9f01c4207a04dee57a966d994_5d5f97a15330417ab13306bf38af0529_large.webp' %} " alt="item">
+                                </div>
+                                <div class="detail-item">
+                                    <h5>
+                                        <a href="">Degrey Double Block Balo - DDBB</a>
+                                    </h5>
+                                    <p class="price-item">
+                                        <span class="price">400,000₫</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="item">
+                                <div class="img-item">
+                                    <img src="{% static 'assets/img/452f3fa9f01c4207a04dee57a966d994_5d5f97a15330417ab13306bf38af0529_large.webp' %} " alt="item">
+                                </div>
+                                <div class="detail-item">
+                                    <h5>
+                                        <a href="">Degrey Double Block Balo - DDBB</a>
+                                    </h5>
+                                    <p class="price-item">
+                                        <span class="price">400,000₫</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="item">
+                                <div class="img-item">
+                                    <img src="{% static 'assets/img/452f3fa9f01c4207a04dee57a966d994_5d5f97a15330417ab13306bf38af0529_large.webp' %} " alt="item">
+                                </div>
+                                <div class="detail-item">
+                                    <h5>
+                                        <a href="">Degrey Double Block Balo - DDBB</a>
+                                    </h5>
+                                    <p class="price-item">
+                                        <span class="price">400,000₫</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="item">
+                                <div class="img-item">
+                                    <img src="{% static 'assets/img/452f3fa9f01c4207a04dee57a966d994_5d5f97a15330417ab13306bf38af0529_large.webp' %} " alt="item">
+                                </div>
+                                <div class="detail-item">
+                                    <h5>
+                                        <a href="">Degrey Double Block Balo - DDBB</a>
+                                    </h5>
+                                    <p class="price-item">
+                                        <span class="price">400,000₫</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="item">
+                                <div class="img-item">
+                                    <img src="{% static 'assets/img/452f3fa9f01c4207a04dee57a966d994_5d5f97a15330417ab13306bf38af0529_large.webp' %} " alt="item">
+                                </div>
+                                <div class="detail-item">
+                                    <h5>
+                                        <a href="">Degrey Double Block Balo - DDBB</a>
+                                    </h5>
+                                    <p class="price-item">
+                                        <span class="price">400,000₫</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="item">
+                                <div class="img-item">
+                                    <img src="{% static 'assets/img/452f3fa9f01c4207a04dee57a966d994_5d5f97a15330417ab13306bf38af0529_large.webp' %} " alt="item">
+                                </div>
+                                <div class="detail-item">
+                                    <h5>
+                                        <a href="">Degrey Double Block Balo - DDBB</a>
+                                    </h5>
+                                    <p class="price-item">
+                                        <span class="price">400,000₫</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="item">
+                                <div class="img-item">
+                                    <img src="{% static 'assets/img/452f3fa9f01c4207a04dee57a966d994_5d5f97a15330417ab13306bf38af0529_large.webp' %} " alt="item">
+                                </div>
+                                <div class="detail-item">
+                                    <h5>
+                                        <a href="">Degrey Double Block Balo - DDBB</a>
+                                    </h5>
+                                    <p class="price-item">
+                                        <span class="price">400,000₫</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="item">
+                                <div class="img-item">
+                                    <img src="{% static 'assets/img/452f3fa9f01c4207a04dee57a966d994_5d5f97a15330417ab13306bf38af0529_large.webp' %} " alt="item">
+                                </div>
+                                <div class="detail-item">
+                                    <h5>
+                                        <a href="">Degrey Double Block Balo - DDBB</a>
+                                    </h5>
+                                    <p class="price-item">
+                                        <span class="price">400,000₫</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="item">
+                                <div class="img-item">
+                                    <img src="{% static 'assets/img/452f3fa9f01c4207a04dee57a966d994_5d5f97a15330417ab13306bf38af0529_large.webp' %} " alt="item">
+                                </div>
+                                <div class="detail-item">
+                                    <h5>
+                                        <a href="">Degrey Double Block Balo - DDBB</a>
+                                    </h5>
+                                    <p class="price-item">
+                                        <span class="price">400,000₫</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+        

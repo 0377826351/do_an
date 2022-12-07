@@ -1,0 +1,102 @@
+{% extends 'default.html' %}
+{% load static %}
+{% block content %}
+    <div class="mainContent">
+        <div class="container">
+            <div class="breadcrumb mt-3">
+                <nav class="breadcrumb d-flex justify-content-left">
+                    <span>
+                        <span class="fs-5">
+                            <a href="#">Home</a>
+                            /
+                            <span class="breadcrumb-last">Giỏ hàng</span>
+                        </span>
+                    </span>
+                </nav>
+            </div>
+            <div class="main-cart">
+                <div class="row">
+                    <div class="col-12 col-md-8">
+                        <div class="main-cart-detail">
+                            <div class="heading-cart">
+                                <h1>Giỏ hàng của bạn</h1>
+                            </div>
+                            <div class="list-cart">
+                                <div class="cart-row">
+                                    <div class="title-number-cart">
+                                        Bạn đang có
+                                        <strong class="count-cart">1 sản phẩm</strong>
+                                        trong giỏ hàng!
+                                    </div>
+                                    <div class="table-cart">
+                                        <div class="line-item border border-2 rounded-3 mt-3 p-3 row">
+                                            <div class="col-3 align-self-center">
+                                                <div class="item-img">
+                                                    <img src="  //product.hstatic.net/1000281824/product/bed8cb2c9ff5466984b8688daddd21ee_b1b17b83459340908a1bee61d9c3a534_medium.jpeg" alt="Degrey.Madmonks Jacket Biker - JBK" width="100%" height="100%">
+                                                </div>
+                                            </div>
+                                            <div class="col-5 align-self-center">
+                                                <div class="item-info">
+                                                    <div class="item-title fw-bold">Áo khoác</div>
+                                                    <div class="item-size fw-bold">s</div>
+                                                </div>
+                                                <div class="item-price">
+                                                    <p>
+                                                        <span>1,000,000₫</span>															
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 align-self-center">
+                                                <div class="item-total">
+                                                    <div class="item-total-price text-center pb-1 fw-bold">													
+                                                        <div class="line-item-total">1,000,000₫</div>
+                                                    </div>
+                                                    <div class="item-qty ">
+                                                        <div class="qty quantity-partent d-flex justify-content-center ">
+                                                        <button type="button" class="qtyminus qty-btn border border-2 rounded-1">-</button>															
+                                                        <input type="text" size="4" name="qty" min="1" value="1" class="tc line-item-qty item-quantity border border-2 ms-1 me-1 rounded-1 text-center">
+                                                        <button type="button" class="qtyplus qty-btn border border-2 rounded-1">+</button>														
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mainCart-sidebar">
+                            <div class="order-summary-block mb-4">
+                                <h2 class="summary-title">Thông tin đơn hàng</h2>
+                                <hr>
+                                <div class="summary-total pe-5 d-flex justify-content-between">
+                                    <span class="fw-bold align-self-center">
+                                    Tổng tiền: 
+                                    </span>
+                                    <span class="fs-4 text-danger fw-bold"> 1,000,000₫</span>
+                                </div>
+                                <hr>
+                                <div class="summary-action">	
+                                    <p class="p-2">* Phí vận chuyển sẽ được tính ở trang thanh toán.</p>					
+                                    <div class="summary-button text-end me-4">
+                                        <a id="btnCart-checkout" class="checkout-btn btn btn-danger" data-price-total="1000000" href="#">THANH TOÁN </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="order-summary-block order-summary-notify border border-2 bg-success rounded-3 p-3" style="--bs-bg-opacity: .1;">
+                                <div class="summary-warning alert-order">						
+                                    <p class="textmr"><strong>Chính sách giao hàng</strong></p>									
+                                    <p>Hiện chúng tôi chỉ áp dụng thanh toán với đơn hàng có giá trị tối thiểu <strong>150.000₫ </strong> trở lên.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
