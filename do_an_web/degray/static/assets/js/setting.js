@@ -4,6 +4,23 @@ $(document).ready(function(){
         
     });
 
+    // $(".qtyplus-cart").click(function () {
+    //     var number = document.getElementById("quantity").value;
+    //     alert(number)
+    //     if (number >= parseInt(0)){
+    //         new_number = parseInt(number)+1;
+    //         document.getElementById("quantity").value = new_number;
+    //     }
+    // })
+
+    // $(".qtyminus-cart").click(function () {
+    //     var number = document.getElementById("quantity").value;
+    //     if (number >= parseInt(1)){
+    //         new_number = parseInt(number)-1;
+    //         document.getElementById("quantity").value = new_number;
+    //     }
+    // })
+
     $(".icon-bars").click(function () {
         $(this).children('i').toggleClass("fa-times").toggleClass("fa-bars");
         $("body").toggleClass("open-menu");
@@ -13,6 +30,8 @@ $(document).ready(function(){
         $("body").removeClass("open-menu");
         $(this).parents().find(".icon-bars i").removeClass("fa-times").addClass("fa-bars");
     });
+
+    $(".price-number").toLocaleString() 
 
     $(".search-header").click(function () {
         $(".opbg").css("visibility", "visible");
@@ -53,5 +72,37 @@ $(document).ready(function(){
     }));
 });
 
+$('.lisprod-item').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:5
+        }
+    }
+})
 
+$('.home-banner').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:1
+        },
+        1000:{
+            items:1
+        }
+    }
+})
 

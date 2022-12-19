@@ -5,8 +5,9 @@ from django.shortcuts import render,redirect
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout
 from django.contrib.auth.models import User
+from  ...models import Item,Cart
 from django.contrib.auth import authenticate
-from  ...models import Customer
+
 
 def login(request):
     template = loader.get_template('website/user/login.html')
@@ -35,8 +36,11 @@ def login(request):
     return HttpResponse(template.render(context, request))
 
 def log_out(request):
-    logout(request)
-    return redirect('/login')
+    if request.user.is_authenticated:
+        logout(request)
+        return redirect('/login')
+    else:
+        return redirect('/home')
 
 def register(request):
     template = loader.get_template('website/user/register.html')
@@ -63,7 +67,41 @@ def register(request):
     return HttpResponse(template.render(context, request))
 
 def changePassword(request):
-    pass
+    template = loader.get_template('website/user/change_password.html')
+    user =request.user
+    if user.is_anonymous:
+        return redirect("/home")
+    elif request.method == 'POST':
+        current_password = request.POST.get('current_password')
+        new_password = request.POST.get('new_password')
+        confirm_new_password = request.POST.get('confirm_new_password')
+        if new_password == confirm_new_password and user.check_password(current_password):
+            user.set_password(new_password)
+            user.save()
+            context = {
+                'title': 'Change Password',
+                'noti':' Đổi mật khẩu thành công!'
+            }
+        elif new_password != confirm_new_password:
+            context = {
+                'title': 'Change Password',
+                'noti':' Mật khẩu hiện tại không đúng!'
+            }
+        else:
+            context = {
+                'title': 'Change Password',
+                'noti':' Mật khẩu không trùng khớp!'
+
+            }
+    else:
+        context = {
+            'title':  'Change Password',
+        }
+    return HttpResponse(template.render(context, request))
+
 
 def forgotPassword(request):
-    pass
+    template = loader.get_template('website/user/forgot_password.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
+    

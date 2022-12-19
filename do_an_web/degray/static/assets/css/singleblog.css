@@ -2,6 +2,11 @@
     width: 50%;
 }
 
+.add-to-cartProduct:hover {
+    transform: scale(1.02)
+}
+
+
 @media only screen and (max-width: 768px) {
     .detail-item>h5>a {
         font-size:15px;

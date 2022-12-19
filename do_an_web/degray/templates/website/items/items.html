@@ -32,15 +32,33 @@
                                 <div class="nav-item me-4 ">
                                     <a href="" class="dropdown-nav text-head dropdown-toggle btn btn-primary p-2">Sắp xếp</a>
                                     <ul class="dropdown-menu">
-                                        <li class="dropdown-item">
-                                            <a href="">Sản phẩm nổi bật</a>
-                                        </li>
-                                        <li class="dropdown-item">
-                                            <a href="">Giá: Tăng dần</a>
-                                        </li>
-                                        <li class="dropdown-item">
-                                            <a href="">Giá: Giảm dần</a>
-                                        </li>
+                                        {% if slug is None %}
+                                            <li class="dropdown-item">
+                                                <a href="/items/filter/a-z">Tên A-Z</a>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <a href="/items/filter/z-a">Tên Z-A</a>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <a href="/items/filter/price-up">Giá: Tăng dần</a>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <a href="/items/filter/price-down">Giá: Giảm dần</a>
+                                            </li>
+                                        {% else %}
+                                            <li class="dropdown-item">
+                                                <a href="/items/{{slug}}/a-z">Tên A-Z</a>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <a href="/items/{{slug}}/z-a">Tên Z-A</a>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <a href="/items/{{slug}}/price-up">Giá: Tăng dần</a>
+                                            </li>
+                                            <li class="dropdown-item">
+                                                <a href="/items/{{slug}}/price-down">Giá: Giảm dần</a>
+                                            </li>
+                                        {% endif %}
                                     </ul>
                                 </div>
                             </div>
@@ -51,135 +69,32 @@
             <div class="collection-list-items">
                 <div class="container">
                     <div class="collection">
-                        <div class="row">
-                            <div class="col-6 col-lg-3">
-                                <div class="item">
+                        <div class="row list-item">
+                            {% for item in list_item %} 
+                            <div class="col-6 col-lg-3 item">
+                                <a href="/detail-item/{{item.product_code}}" data-listing-price="{{item.price}}">
                                     <div class="img-item">
-                                        <img src="{% static 'assets/img/452f3fa9f01c4207a04dee57a966d994_5d5f97a15330417ab13306bf38af0529_large.webp' %} " alt="item">
+                                        <img src="{{item.image.url}}" alt="item">
                                     </div>
                                     <div class="detail-item">
                                         <h5>
-                                            <a href="">Degrey Double Block Balo - DDBB</a>
+                                            <div href="">{{item.name}}</div>
                                         </h5>
                                         <p class="price-item">
-                                            <span class="price">400,000₫</span>
+                                            <span class="price">{{item.price}}</span>
                                         </p>
                                     </div>
-                                </div>
+                                </a>
                             </div>
-                            <div class="col-6 col-lg-3">
-                                <div class="item">
-                                    <div class="img-item">
-                                        <img src="{% static 'assets/img/452f3fa9f01c4207a04dee57a966d994_5d5f97a15330417ab13306bf38af0529_large.webp' %} " alt="item">
-                                    </div>
-                                    <div class="detail-item">
-                                        <h5>
-                                            <a href="">Degrey Double Block Balo - DDBB</a>
-                                        </h5>
-                                        <p class="price-item">
-                                            <span class="price">400,000₫</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-lg-3">
-                                <div class="item">
-                                    <div class="img-item">
-                                        <img src="{% static 'assets/img/452f3fa9f01c4207a04dee57a966d994_5d5f97a15330417ab13306bf38af0529_large.webp' %} " alt="item">
-                                    </div>
-                                    <div class="detail-item">
-                                        <h5>
-                                            <a href="">Degrey Double Block Balo - DDBB</a>
-                                        </h5>
-                                        <p class="price-item">
-                                            <span class="price">400,000₫</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-lg-3">
-                                <div class="item">
-                                    <div class="img-item">
-                                        <img src="{% static 'assets/img/452f3fa9f01c4207a04dee57a966d994_5d5f97a15330417ab13306bf38af0529_large.webp' %} " alt="item">
-                                    </div>
-                                    <div class="detail-item">
-                                        <h5>
-                                            <a href="">Degrey Double Block Balo - DDBB</a>
-                                        </h5>
-                                        <p class="price-item">
-                                            <span class="price">400,000₫</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-lg-3">
-                                <div class="item">
-                                    <div class="img-item">
-                                        <img src="{% static 'assets/img/452f3fa9f01c4207a04dee57a966d994_5d5f97a15330417ab13306bf38af0529_large.webp' %} " alt="item">
-                                    </div>
-                                    <div class="detail-item">
-                                        <h5>
-                                            <a href="">Degrey Double Block Balo - DDBB</a>
-                                        </h5>
-                                        <p class="price-item">
-                                            <span class="price">400,000₫</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-lg-3">
-                                <div class="item">
-                                    <div class="img-item">
-                                        <img src="{% static 'assets/img/452f3fa9f01c4207a04dee57a966d994_5d5f97a15330417ab13306bf38af0529_large.webp' %} " alt="item">
-                                    </div>
-                                    <div class="detail-item">
-                                        <h5>
-                                            <a href="">Degrey Double Block Balo - DDBB</a>
-                                        </h5>
-                                        <p class="price-item">
-                                            <span class="price">400,000₫</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-lg-3">
-                                <div class="item">
-                                    <div class="img-item">
-                                        <img src="{% static 'assets/img/452f3fa9f01c4207a04dee57a966d994_5d5f97a15330417ab13306bf38af0529_large.webp' %} " alt="item">
-                                    </div>
-                                    <div class="detail-item">
-                                        <h5>
-                                            <a href="">Degrey Double Block Balo - DDBB</a>
-                                        </h5>
-                                        <p class="price-item">
-                                            <span class="price">400,000₫</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6 col-lg-3">
-                                <div class="item">
-                                    <div class="img-item">
-                                        <img src="{% static 'assets/img/452f3fa9f01c4207a04dee57a966d994_5d5f97a15330417ab13306bf38af0529_large.webp' %} " alt="item">
-                                    </div>
-                                    <div class="detail-item">
-                                        <h5>
-                                            <a href="">Degrey Double Block Balo - DDBB</a>
-                                        </h5>
-                                        <p class="price-item">
-                                            <span class="price">400,000₫</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
                         
                     </div>
-                    <div class="list-button text-center mt-2">
+                    {% comment %} <div class="list-button text-center mt-2">
                         <a href="" class="btn btn-dark">
                             Xem thêm sản phẩm 
                         </a>
-                    </div>
+                    </div> {% endcomment %}
                 </div>
             </div>
         </div>
