@@ -36,7 +36,7 @@
                                 <div id="primary-menu" class="navbar ps-0 ps-md-5 ">
                                     <ul id="primary-ul" class="nav-ul mb-0 ps-1 ">
                                         <li class="nav-item ms-3 me-3 ">
-                                            <a href="/home" class="item-menu">Trang chủ</a>
+                                            <a href="/home" class="item-menu">Trang Chủ</a>
                                         </li>
                                         <li class="nav-item ms-3 me-3">
                                             <a href="/items" class="item-menu">Sản Phẩm</a>
@@ -45,7 +45,13 @@
                                             <a href="/store" class="item-menu">Store</a>
                                         </li>
                                         <li class="nav-item ms-3 me-3">
-                                            <a href="/about-us" class="item-menu">Giới thiệu</a>
+                                            <a href="/about-us" class="item-menu">Giới Thiệu</a>
+                                        </li>
+                                        <li class="nav-item ms-3 me-3 d-block d-md-none">
+                                            <a href="/cart" class="item-menu">Giỏ Hàng</a>
+                                        </li>
+                                        <li class="nav-item ms-3 me-3 d-block d-md-none">
+                                            <a href="/myorder" class="item-menu">My Order</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -133,14 +139,18 @@
                             <div class="nav-item dropdown align-self-center">
                                 <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa-regular fa-user fa-2xl me-2"></i>
-                                    <span class="fs-5 fw-bold fst-italic">{{user.username}}</span>
+                                    <span class="fs-5 fw-bold fst-italic d-none d-md-block">{{user.username}}</span>
                                 </a>
                                 <ul class="dropdown-menu mt-1">
+                                  {% if user.id == None %}
                                   <li><a class="dropdown-item " href="/login">Đăng nhập</a></li>
                                   <li><a class="dropdown-item " href="/register">Đăng ký</a></li>
+                                  {% endif %}
                                   <li><a class="dropdown-item " href="/change-password">Đổi Mật Khẩu</a></li>
                                   <li><a class="dropdown-item " href="/myorder">Quản Lý Đơn Hàng</a></li>
+                                  {% if user.id != None %}
                                   <li><a class="dropdown-item " href="/logout">Đăng xuất</a></li>
+                                  {% endif %}
                                 </ul>
                               </div>
 

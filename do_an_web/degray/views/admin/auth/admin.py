@@ -5,14 +5,25 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout
-# from ....models import Category,Article,Question
+from ....models import Category,Receipt_DeTail,Receipt,Item
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
 @login_required
 def index(request):
     template = loader.get_template('admin/home/index.html')
-    return HttpResponse(template.render({'title': 'Home-Admin'}, request))
+    count_item = Item.objects.all().count()
+    count_rec = Receipt.objects.filter(status=3).count()
+    count_cate = Category.objects.all().count()
+    count_cus = User.objects.filter(is_staff=False,is_superuser=False).count()
+    context = {
+        'title': 'Home-Admin',
+        'count_item': count_item,
+        'count_rec': count_rec,
+        'count_cate': count_cate,
+        'count_cus': count_cus,
+    }
+    return HttpResponse(template.render(context, request))
 
 def log_out(request):
     logout(request)

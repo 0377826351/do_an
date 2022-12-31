@@ -28,14 +28,25 @@
                     </div>
                     <div class="col-12 col-md-6">
                         <div class="product-container-detail">
+                            <form id="add-item-form" action="" method="post">	
+                                {% csrf_token %}
                             <div class="product-heading">
                                 <h1>{{obj.name}}</h1>
                                 <h3 class="price-number mt-3 fw-bold text-danger">{{obj.price}}  VND</h3>
+                                {% if obj.category_item_id == 2 or obj.category_item_id == 3 or obj.category_item_id == 5 %}
+                                <div class="size-item">
+                                    <span class="me-5">Size: </span>
+                                    <input type="radio" id="S" name="item_size" value="S" required>
+                                    <label for="S" class="me-5 fw-bold">S</label>
+                                    <input type="radio" id="M" name="item_size" value="M">
+                                    <label for="M" class="me-5 fw-bold">M</label>
+                                    <input type="radio" id="L" name="item_size" value="L">
+                                    <label for="L" class="me-5 fw-bold">L</label>
+                                </div>
+                                {% endif %}
                             </div>
-                            <div class="product-variants mt-4 mb-3">
-                                <form id="add-item-form" action="" method="post" class="d-flex">	
-                                    {% csrf_token %}	
-                                    <div class="item-qty ">
+                            <div class="product-variants mt-4 mb-3 d-flex">
+                                    <div class="item-qty">
                                         <div class="qty quantity-partent d-flex justify-content-center">
                                         <button type="button" class="qtyminus qty-btn btn btn-lg  border border-2 rounded-1 fs-5">-</button>															
                                         <input type="text" size="5" id="qty-item" name="qty" min="1" value="1" class="tc fs-5 line-item-qty item-quantity border border-2 ms-1 me-1 rounded-1 text-center">
@@ -43,8 +54,9 @@
                                         </div>
                                     </div>
                                     <button type="submit" id="add-to-cart" class="add-to-cartProduct button rounded-1 text-white bg-dark btn-addtocart addtocart-modal ms-4 pt-2 pb-2" name="add"><span>Thêm vào giỏ</span></button>
-                                </form>
                             </div>
+                            </form>
+
                             <div class="product-policy-detail d-flex">
                                 <div class="item-policy-detail bg-secondary me-3 p-3 mt-4 rounded-3 fw-bold text-center" style="--bs-bg-opacity: 0.3;">
                                     Freeship đơn hàng giá trị trên 1 triệu đồng
@@ -162,6 +174,11 @@
             </div>
         </div>
     </div>
+    <script>
+        if ( window.history.replaceState ) {
+            window.history.replaceState( null, null, window.location.href );
+          }
+    </script>
 {% endblock %}
 
 

@@ -3,6 +3,7 @@ from django.conf import settings
 
 class Cart(models.Model):
     user_add = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE, null=True)
+    product_code = models.CharField(max_length=255,default=None)
     item_name = models.CharField(max_length=255)
     item_size = models.CharField(max_length=255,null=True)
     qty = models.IntegerField()

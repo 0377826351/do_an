@@ -1,17 +1,23 @@
-// $(document).ready(function(){
-//     $(".qtyplus").click(function () {
-//         var number = document.getElementById("qty").value;
-//         if (number >= parseInt(0)){
-//             new_number = parseInt(number)+1;
-//             document.getElementById("qty").value = new_number;
-//         }
-//     })
+$(document).ready(function(){
 
-//     $(".qtyminus").click(function () {
-//         var number = document.getElementById("qty").value;
-//         if (number >= parseInt(1)){
-//             new_number = parseInt(number)-1;
-//             document.getElementById("qty").value = new_number;
-//         }
-//     })
-// });
+    $(".qtyplus-cart").click(function (e) {
+        // e.preventDefault();
+        var number = $(this).parents(".item-qty").find(".line-item-qty").attr("value");
+        if (number >= parseInt(1)){
+            new_number = parseInt(number)+1;
+            // alert(new_number);
+            $(this).parents(".item-qty").find(".line-item-qty").val(new_number);
+        }
+    })
+
+    $(".qtyminus-cart").click(function () {
+        var number = $(this).parents(".item-qty").find(".line-item-qty").attr("value");
+        if (number >= parseInt(2)){
+            new_number = parseInt(number)-1;
+            $(this).parents(".item-qty").find(".line-item-qty").val(new_number);
+        }
+        else {
+            $(this).parents(".item-qty").find(".line-item-qty").val(number);
+        }
+    })
+});

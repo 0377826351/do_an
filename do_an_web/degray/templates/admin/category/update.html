@@ -30,11 +30,24 @@
             <!-- form start -->
             <form method="post">
               {% csrf_token %}
-              <div class="p-3">
-              {{form}}  
-              </div>
-              {% noti noti%}
+              <div class="card-body">
+                <div class="form-group">
+                  <label>Alias Category</label>
+                  <input  type="text" class="form-control" name="alias_category" value="{{cate.alias_category}}" placeholder="Alias Category" required></input>
+                </div>
+                
+                <div class="form-group">
+                  <label>Name </label>
+                  <input  type="text" class="form-control" name="name" value="{{cate.name}}" placeholder="Name" required></input>
+                </div>
 
+
+                <div class="form-group">
+                  <label for="active"> Active </label>
+                  <input type="checkbox" name="active" {% if cate.active == True %} checked {% endif %} class="ml-3">
+                </div> 
+              </div>
+              
               <div class="card-footer">
                 <button type="submit" class="btn btn-primary float-right mr-3">Save</button>
                 <button type="reset" class="btn btn-primary float-right mr-4 ">Reset</button>

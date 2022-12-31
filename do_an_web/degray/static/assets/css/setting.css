@@ -179,7 +179,7 @@ a.item-menu {
         position: fixed;
         top: 68px;
         left: 0;
-        width:calc(100vh - 700px);
+        width:calc(100vh - 666px);
         height: calc(100vh - 48px);
         padding:0;
         background-color: #fff;
@@ -213,13 +213,18 @@ a.item-menu {
 
     .cart-detail {
         top: 45px;
-        right: 332px;
-        width: calc(100vh - 487px);
-        height: calc(100vh - 48px);
+        right: 262px;
+        width: calc(100vh - 455px);
+        height: auto !important;
         background-color: #fff;
         transform: translateX(100%);
         transition: all 0.5s;
         z-index: 10;
+    }
+    .nav-item:hover .dropdown-menu {
+        display: block;
+        right: -55px;
+        top: 27px;
     }
 
     .search-header {

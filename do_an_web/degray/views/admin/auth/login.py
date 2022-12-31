@@ -5,7 +5,7 @@ from django.urls import reverse
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.contrib.auth.models import User
-# from ....models import Extend_User
+from ....models import Extend_User
 from datetime import datetime
 from django.utils import timezone
 import hashlib
@@ -32,8 +32,10 @@ def login(request):
     if request.method == 'POST':
         username = request.POST.get("username")
         password = request.POST.get("password")
+        user = User.objects.get(username=username)
+        is_staff = user.is_staff
         user = authenticate(username=username, password=password)
-        if user is not None:
+        if user is not None and is_staff is True:
             auth_login(request, user)
             return redirect(next)
         else:
@@ -57,10 +59,10 @@ def adduser(request):
     fullName = request.POST['fullname']
     email = request.POST['email']
     passWord = request.POST['password']
-    user = User(username=fullName, email=email)
+    user = User(username=fullName, email=email,is_staff=True)
     user.set_password(passWord)
     user.save()
-    return redirect("/login")
+    return redirect("/login-admin")
 
 def forgot(request):
     if request.user.is_authenticated:
@@ -102,7 +104,6 @@ def reset_password_confirm(request,id,token,token_date):
     template = loader.get_template('admin/password/password_reset_confirm.html')
     extend = Extend_User.objects.get(user_id = id   )
     token_date_extend = extend.token_date
-    print(token_date)
     if( timezone.now() - token_date_extend).seconds <300:
         if request.method == 'POST':
             new_password = request.POST.get('password')

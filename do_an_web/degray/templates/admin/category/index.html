@@ -24,13 +24,10 @@
       <div class="container-fluid">
         <div class="card">
             <div class="card-header border-0">
-              <h3 class="card-title">{{title}}</h3>
+              <h3 class="card-title"></h3>
               <div class="card-tools">
-                <a href="#" class="btn btn-tool btn-sm">
-                  <i class="fas fa-download"></i>
-                </a>
-                <a href="category-admin/form_cate" class="btn btn-tool btn-sm">
-                  <i class="fa-solid fa-plus"></i>
+                <a href="/category-admin/add-cate" class="btn btn-tool btn-sm">
+                  <i class="fa-solid fa-plus fa-xl"></i>
                 </a>
               </div>
             </div>
@@ -38,6 +35,7 @@
               <table class="table table-striped table-valign-middle">
                 <thead>
                 <tr>
+                  <th>ID</th>
                   <th>Alias_Category</th>
                   <th>Name</th>
                   <th>Active</th>
@@ -47,7 +45,10 @@
                 {% for obj in list_obj %}
                 <tr>
                   <td>
-                    <a href="category-admin/form_cate/{{ obj.alias_category }}">{{ obj.alias_category }}</a>
+                    <a href="category-admin/update/{{obj.id}}">{{obj.id}}</a>
+                  </td>
+                  <td>
+                    {{ obj.alias_category }}
                   </td>
                   <td>
                     {{ obj.name }}
@@ -56,7 +57,7 @@
                     {{ obj.active }}
                   </td>
                   <td>
-                    <a href="category-admin/delete/{{ obj.alias_category }}"><i class="fa-solid fa-trash"></i></a>
+                    <a href="/category-admin/delete/{{obj.id}}"><i class="fa-solid fa-trash fa-xl"></i></a>
                   </td>
                 </tr>
                 {% endfor %}

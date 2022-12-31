@@ -31,38 +31,53 @@
                                     </div>
                                     <div class="table-cart">
                                         {% for item in list_cart %}
+                                        <form method="post" id="task-form">	
+                                            {% csrf_token %}
                                         <div class="line-item border border-2 rounded-3 mt-3 p-3 row">
-                                            <div class="col-3 align-self-center">
-                                                <div class="item-img">
+                                            <div class="col-3 align-self-center position-relative">
+                                                <a href="/detail-item/{{item.product_code}}" class="item-img">
                                                     <img src="{{item.image.url}}" alt="Degrey.Madmonks Jacket Biker - JBK" width="100%" height="100%">
+                                                </a>
+                                                <div class="delete-item position-absolute top-0 end-0">
+                                                    <a href="/delete/{{item.product_code}}-{{item.item_size}}">
+                                                        <i class="fa-solid fa-trash-can fa-xl"></i>
+                                                    </a>
                                                 </div>
                                             </div>
                                             <div class="col-5 align-self-center">
                                                 <div class="item-info">
-                                                    <div class="item-title fw-bold">{{item.item_name}}</div>
-                                                    <div class="item-size fw-bold">{{item.item_size}}</div>
+                                                    <a href="/detail-item/{{item.product_code}}" class="item-img text-dark">
+                                                    <div name="name-item" class="item-title mb-3 fs-5 fw-bold">{{item.item_name}}</div>
+                                                    </a>
+
+                                                    {% if item.item_size is not None %}
+                                                    <div name="item-size" class="item-size fw-bold fs-6">Size: {{item.item_size}}</div>
+                                                    <input type="text" name="item-size" value="{{item.item_size}}" style="visibility: hidden;" >
+                                                    {% endif %}
                                                 </div>
                                                 <div class="item-price">
                                                     <p>
-                                                        <span class="text-dark fw-bold">{{item.price}} ₫</span>															
+                                                        <span class="text-dark fw-bold fs-6">{{item.price}} ₫</span>															
                                                     </p>
+                                                    <input type="text" name="slug" value="{{item.product_code}}" style="visibility: hidden;" >
                                                 </div>
                                             </div>
                                             <div class="col-4 align-self-center">
                                                 <div class="item-total">
                                                     <div class="item-total-price text-center pb-1 fw-bold">													
-                                                        <div class="line-item-total">{{item.qty|mul:item.price}}</div>
+                                                        <div class="line-item-total">{{item.qty|mul:item.price}}đ</div>
                                                     </div>
                                                     <div class="item-qty ">
                                                         <div class="qty quantity-partent d-flex justify-content-center ">
-                                                        <button type="button" class="qtyminus-cart qty-btn border border-2 rounded-1">-</button>															
-                                                        <input type="text" id="quantity" size="4" name="qty" min="1" value="{{item.qty}}" class="tc line-item-qty item-quantity border border-2 ms-1 me-1 rounded-1 text-center">
-                                                        <button type="button" class="qtyplus-cart qty-btn border border-2 rounded-1">+</button>														
+                                                        <button type="submit" class="qtyminus-cart qty-btn border border-2 rounded-1">-</button>															
+                                                        <input type="text" id="quantity-cart" size="4" name="qty" min="1" value="{{item.qty}}" class="tc line-item-qty item-quantity border border-2 ms-1 me-1 rounded-1 text-center">
+                                                        <button type="submit" class="qtyplus-cart qty-btn border border-2 rounded-1">+</button>														
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        </form>
                                         {% endfor %}
                                     </div>
                                 </div>
@@ -100,6 +115,9 @@
             </div>
         </div>
     </div>
+
 {% endblock %}
+
+
 
 

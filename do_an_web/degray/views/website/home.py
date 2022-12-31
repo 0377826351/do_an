@@ -1,5 +1,6 @@
 from django.http import HttpResponse,HttpResponseRedirect
 from django.template import loader
+from django.core.paginator import Paginator
 from django.urls import reverse
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate
@@ -26,8 +27,12 @@ def index(request):
     else:
         list_item = Item.objects.filter(name__icontains=searched)
         template = loader.get_template('website/items/items.html')
+        paginator = Paginator(list_item, 8)
+        page_number = request.GET.get('page',1)
+        page_obj = paginator.get_page(page_number)
         context = {
             'title': 'Home',
-            'list_item':list_item,
+            'page_obj': page_obj,
+
         }
         return HttpResponse(template.render(context, request))

@@ -70,7 +70,7 @@
                 <div class="container">
                     <div class="collection">
                         <div class="row list-item">
-                            {% for item in list_item %} 
+                            {% for item in page_obj %} 
                             <div class="col-6 col-lg-3 item">
                                 <a href="/detail-item/{{item.product_code}}" data-listing-price="{{item.price}}">
                                     <div class="img-item">
@@ -87,6 +87,23 @@
                                 </a>
                             </div>
                             {% endfor %}
+                        </div>
+                        <div class="pagination d-flex justify-content-center">
+                            <span class="step-links">
+                                {% if page_obj.has_previous %}
+                                    <a href="?page=1" class="btn btn-primary">&laquo; First</a>
+                                    <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-primary">Previous</a>
+                                {% endif %}
+                        
+                                <span class="current btn btn-primary" >
+                                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                                </span>
+                        
+                                {% if page_obj.has_next %}
+                                    <a href="?page={{ page_obj.next_page_number }}" class="btn btn-primary">Next</a>
+                                    <a href="?page={{ page_obj.paginator.num_pages }}" class="btn btn-primary">Last &raquo;</a>
+                                {% endif %}
+                            </span>
                         </div>
                         
                     </div>
