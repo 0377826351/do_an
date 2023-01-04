@@ -164,6 +164,14 @@ a.item-menu {
         display: none;
     }
 
+    /* .bars-mb {
+        position: relative;
+    } */
+
+    /* .content-bars-mb {
+        position: absolute;
+    } */
+
     .search-header {
         float: right !important;
     }
