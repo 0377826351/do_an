@@ -31,7 +31,7 @@ def login(request):
                 'error':'success',
                 'user':user,
             }
-            return redirect("/home")
+            return redirect("/")
         else:
             context={
                 'title': 'Login',
@@ -48,7 +48,7 @@ def log_out(request):
         logout(request)
         return redirect('/login')
     else:
-        return redirect('/home')
+        return redirect('/')
 
 def register(request):
     template = loader.get_template('website/user/register.html')
@@ -87,7 +87,7 @@ def changePassword(request):
     template = loader.get_template('website/user/change_password.html')
     user =request.user
     if user.is_anonymous:
-        return redirect("/home")
+        return redirect("/")
     elif request.method == 'POST':
         current_password = request.POST.get('current_password')
         new_password = request.POST.get('new_password')
@@ -162,7 +162,7 @@ def reset_password_confirm_user(request,id,token,token_date):
                 user = authenticate(username=user.username, password=new_password)
                 if user is not None:
                     auth_login(request, user)
-                    return redirect('/home')
+                    return redirect('/')
                 else:
                     context = {
                     "title": "Confirm PassWord",
