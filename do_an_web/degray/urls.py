@@ -2,7 +2,7 @@ from django.urls import path
 from .views.website import home,about_us,cart,detail_item,items,store,pay,myorder,user
 from .views.admin.auth import login,admin,category_admin,items_admin,staff,receipt,customer
 urlpatterns = [
-    path('home',home.index,name='home_index'),
+    path('',home.index,name='home_index'),
     path('items',items.index,name='items_index'),
     path('items/filter/<str:ft>',items.index,name='items_filter_index'),
     path('items/<int:slug>/',items.index,name='items_click_index'),
