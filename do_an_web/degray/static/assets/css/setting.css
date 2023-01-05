@@ -187,13 +187,13 @@ a.item-menu {
         position: fixed;
         top: 68px;
         left: 0;
-        width:calc(100vh - 666px);
+        width:calc(100vh - 448px);
         height: calc(100vh - 48px);
         padding:0;
         background-color: #fff;
         transform:translateX(-100%);
         transition: all 0.5s;
-        /* z-index: 10; */
+        z-index: 10;
     }
 
     iframe {
