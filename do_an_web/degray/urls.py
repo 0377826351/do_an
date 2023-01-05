@@ -21,6 +21,10 @@ urlpatterns = [
     path('change-password',user.changePassword,name='user_changePassword'),
     path('forgot-password',user.forgotPassword,name='user_forgotPassword'),
     path('reset-password-user-confirm/<int:id>/<token>/<token_date>', user.reset_password_confirm_user, name='reset_password_user_done_index'),
+
+    # path('forget-password',user.Forget_Password,name='forget_password'),
+    # path('changeps/<token>/',user.changeps,name='changeps'),
+
     path('logout',user.log_out,name='user_logout'),
     
     path('logout-admin', admin.log_out, name='logout_index'),

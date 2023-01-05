@@ -12,6 +12,9 @@ from django.utils import timezone
 import hashlib
 import string
 import random
+import uuid
+from ...helpers import send_forget_password_email
+from django.contrib import messages
 
 
 def login(request):
@@ -177,4 +180,38 @@ def reset_password_confirm_user(request,id,token,token_date):
     else:
         return redirect('/forgot-password')
     return HttpResponse(template.render(context,request))
+
+
+# def changeps (request,token):
+#     template = loader.get_template('website/user/password_reset_success.html')
+#     context = {}
+#     try:
+#         profile_obj = Extend_User.objects.get(token = token)
+#         print(profile_obj)
+#     except Exception as e:
+#         print(e)
+#     return HttpResponse(template.render(context,request))
+
+
+# def Forget_Password(request):
+#     template = loader.get_template('website/user/forgot_password.html')
+#     context = {
+#     }
+#     try:
+#         if request.method == 'POST':
+#             email = request.POST.get('email')
+#             user = User.objects.get(email=email)
+#             token = str(uuid.uuid4())
+#             send_forget_password_email(user,token)
+#             print(send_forget_password_email)
+#             context = {
+#                 'title': 'Recover PassWord',
+#                 'error':'an email is sent'
+#             }
+#             return redirect('/forgot-password')
     
+#     except Exception as e:
+#         print(e)
+    
+#     return HttpResponse(template.render(context, request))
+
