@@ -222,7 +222,7 @@ a.item-menu {
     .cart-detail {
         top: 45px;
         right: 262px;
-        width: calc(100vh - 455px);
+        width: calc(100vh - 283px);
         height: auto !important;
         background-color: #fff;
         transform: translateX(100%);
