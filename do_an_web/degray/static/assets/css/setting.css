@@ -156,7 +156,7 @@ a.item-menu {
 }
 
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 600px) and (max-height: 900px) {
     /* #primary-menu {
         display: none;
     } */
