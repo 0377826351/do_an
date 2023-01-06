@@ -4,7 +4,7 @@
 {% block content %}
 
 <div class="mainContainer">
-    <div class="container">
+    <div class="container myorder-content">
         <div class="breadcrumb mt-3">
             <nav class="breadcrumb d-flex justify-content-left">
                 <span>
@@ -17,22 +17,22 @@
             </nav>
         </div>
         <h2 class="">Danh sách đơn hàng của tôi</h2>
-        <hr>
+        <hr style="width:100%">
         <div class="list-order">
-          <div class="row ">
-            <div class="col-2 col-md-1 fw-bold ">Đơn Hàng</div>
-            <div class="col-3 col-md-1 fw-bold">Người nhận</div>
-            <div class="col-1 d-none d-md-block fw-bold">SDT</div>
-            <div class="col-2 d-none d-md-block fw-bold">Địa Chỉ</div>
-            <div class="col-3 d-none d-md-block fw-bold">Sản Phẩm</div>
-            <div class="col-3 col-md-1 fw-bold">Trạng Thái</div>
-            <div class="col-1 d-none d-md-block fw-bold">Ngày Tạo</div>
-            <div class="col-2 col-md-1 fw-bold">Tổng tiền</div>
+          <div class="flex-nowrap row">
+            <div class="col-2 col-md-1  fw-bold ">Đơn Hàng</div>
+            <div class="col-3 col-md-2 fw-bold">Người nhận</div>
+            <div class="col-2  fw-bold">SDT</div>
+            <div class="col-2  fw-bold">Địa Chỉ</div>
+            <div class="col-5 col-md-3  fw-bold">Sản Phẩm</div>
+            <div class="col-2 col-md-1  fw-bold">Trạng Thái</div>
+            <div class="col-2  fw-bold">Ngày Tạo</div>
+            <div class="col-2 col-md-1  fw-bold">Tổng tiền</div>
             <div class="col-2 col-md-1 fw-bold">Hủy Đơn</div>
           </div>
           <hr>
           {% for rec in list_rec %}
-          <div class="row mt-2 mb-2">
+          <div class="row flex-nowrap mt-2 mb-2">
             <div class="col-2 col-md-1 text-center align-self-center">
               <svg class="svg-ico-cart" xmlns="http://www.w3.org/2000/svg" viewBox="0 -13 456.75885 456" width="30px" height="30px">
                 <path d="m150.355469 322.332031c-30.046875 0-54.402344 24.355469-54.402344 54.402344 0 30.042969 24.355469 54.398437 54.402344 54.398437 30.042969 0 54.398437-24.355468 54.398437-54.398437-.03125-30.03125-24.367187-54.371094-54.398437-54.402344zm0 88.800781c-19 0-34.402344-15.402343-34.402344-34.398437 0-19 15.402344-34.402344 34.402344-34.402344 18.996093 0 34.398437 15.402344 34.398437 34.402344 0 18.996094-15.402344 34.398437-34.398437 34.398437zm0 0"></path>
@@ -40,38 +40,38 @@
                 <path d="m360.355469 322.332031c-30.046875 0-54.402344 24.355469-54.402344 54.402344 0 30.042969 24.355469 54.398437 54.402344 54.398437 30.042969 0 54.398437-24.355468 54.398437-54.398437-.03125-30.03125-24.367187-54.371094-54.398437-54.402344zm0 88.800781c-19 0-34.402344-15.402343-34.402344-34.398437 0-19 15.402344-34.402344 34.402344-34.402344 18.996093 0 34.398437 15.402344 34.398437 34.402344 0 18.996094-15.402344 34.398437-34.398437 34.398437zm0 0"></path>
             </svg>
             </div>
-            <div class="col-3 col-md-1 fw-bold align-self-center">{{rec.name_cus}}</div>
-            <div class="col-1 fw-bold d-none d-md-block align-self-center">{{rec.phone_cus}}</div>
-            <div class="col-2 fw-bold d-none d-md-block align-self-center">{{rec.address_cus}}</div>
-            <div class="col-3 fw-bold d-none d-md-block align-self-center">
+            <div class="col-3 col-md-2 fw-bold align-self-center">{{rec.name_cus}}</div>
+            <div class="col-2 fw-bold  align-self-center">{{rec.phone_cus}}</div>
+            <div class="col-2 fw-bold  align-self-center">{{rec.address_cus}}</div>
+            <div class="col-5 col-md-3 fw-bold  align-self-center">
             {% for rec_det in list_rec_det%}
             {% if rec_det.id_receipt == rec.id%}
-              <div class="d-flex justify-content-between">
+              <div class="item-order d-flex justify-content-between">
                 <div class="align-self-center">
                   {{rec_det.name_item}}
-                  <p>x{{rec_det.qty_item}}</p>
+                  <p class="mb-1">x{{rec_det.qty_item}}</p>
                   {% if rec_det.item_size is not None %}
-                  <p name="item-size" class="item-size fw-bold fs-6">Size: {{rec_det.item_size}}</p>
+                  <p name="item-size" class="item-size fw-bold fs-6 mb-0">Size: {{rec_det.item_size}}</p>
                   {% comment %} <input type="text" name="item-size" value="{{item.item_size}}" style="visibility: hidden;" > {% endcomment %}
                   {% endif %}
                 </div>
-                <img class="d-flex justify-center-end" src="{{rec_det.image.url}}" style="max-width:20%;max-height:60%">
+                <img class="d-flex justify-center-end" src="{{rec_det.image.url}}">
               </div>
               {% endif %}
               {% endfor %}
             </div>
             {% for key,value in list_status.items %}
               {% if key == rec.status %}
-                  <div class="col-3 col-md-1 fw-bold align-self-center">
+                  <div class="col-2 col-md-1  fw-bold align-self-center">
                       {{value}}
                   </div>
               {% endif %}
             {% endfor %}
-            <div class="col-1 d-none d-md-block fw-bold align-self-center">{{rec.created_at}}</div>
-            <div class="col-2 col-md-1 fw-bold align-self-center">
+            <div class="col-2  fw-bold align-self-center">{{rec.created_at}}</div>
+            <div class="col-2 col-md-1  fw-bold align-self-center">
               {{rec.id|total}}
             </div>
-            <div class="col-2 col-md-1 fw-bold align-self-center">
+            <div class="col-2 col-md-1  fw-bold align-self-center">
               <a href="/myorder/delete/{{rec.id}}"><i class="fa-solid text-dark fa-trash fa-xl"></i></a>
             </div>
           </div>

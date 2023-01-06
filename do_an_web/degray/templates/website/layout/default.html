@@ -13,6 +13,7 @@
     {% comment %} <link rel="stylesheet" href="{% static 'assets/plugins/AdminLTE-3.2.0/adminlte.min.css' %}"> {% endcomment %}
     <link rel="stylesheet" href="{% static 'assets/css/setting.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/myorder.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/cart.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/singleblog.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/store.css' %}">
@@ -141,15 +142,15 @@
                                     <i class="fa-regular fa-user fa-2xl me-2"></i>
                                     <span class="fs-5 fw-bold fst-italic d-none d-md-block">{{user.username}}</span>
                                 </a>
-                                <ul class="dropdown-menu mt-1">
+                                <ul class="dropdown-menu">
                                   {% if user.id == None %}
-                                  <li class="d-block d-md-none"><span class="fs-5 fw-bold fst-italic">{{user.username}}</span></li>
                                   <li><a class="dropdown-item " href="/login">Đăng nhập</a></li>
                                   <li><a class="dropdown-item " href="/register">Đăng ký</a></li>
                                   {% endif %}
+                                  {% if user.id != None %}
+                                  <li class="d-block d-md-none text-center"><a class="dropdown-item fw-bold">{{user.username}}</a></li>
                                   <li><a class="dropdown-item " href="/change-password">Đổi Mật Khẩu</a></li>
                                   <li><a class="dropdown-item " href="/myorder">Quản Lý Đơn Hàng</a></li>
-                                  {% if user.id != None %}
                                   <li><a class="dropdown-item " href="/logout">Đăng xuất</a></li>
                                   {% endif %}
                                 </ul>
@@ -170,7 +171,7 @@
 
         {% endblock %}
 
-        <div class="bars-mb d-block d-md-none align-self-bottom d-flex justify-content-between mt-3 pt-3 bg-dark">
+        <div class="bars-mb-content d-block d-md-none align-self-bottom d-flex justify-content-between mt-3 pt-3 bg-dark">
             <div class="infocc ps-3">
                 <div class="infocc-box text-white">
                 <span class="txtcc txt-init">Bán hàng 9:00 - 22:00</span>
@@ -312,10 +313,10 @@
     <script src="{% static 'assets/plugins/OwlCarousel2/owl.carousel.min.js' %}"></script>
     <script src="{% static 'assets/plugins/AdminLTE-3.2.0/adminlte.min.js' %}"></script>
 
-    <script type="text/javascript" src="{% static 'assets/js/home.js' %}"></script>
+    {% comment %} <script type="text/javascript" src="{% static 'assets/js/home.js' %}"></script> {% endcomment %}
     <script type="text/javascript" src="{% static 'assets/js/detail_item.js' %}"></script>
     <script type="text/javascript" src="{% static 'assets/js/cart.js' %}"></script>
-    <script type="text/javascript" src="{% static 'assets/js/singleblog.js' %}"></script>
+    {% comment %} <script type="text/javascript" src="{% static 'assets/js/singleblog.js' %}"></script> {% endcomment %}
     <script type="text/javascript" src="{% static 'assets/js/setting.js' %}"></script>
 
 </body>

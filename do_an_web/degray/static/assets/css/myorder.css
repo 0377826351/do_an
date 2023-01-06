@@ -1,0 +1,34 @@
+.list-order {
+    width: auto !important;
+    overflow-x: scroll;
+}
+
+.item-order img {
+    max-width: 30%;
+    max-height: auto;
+}
+
+.myorder-content hr {
+    width: 127%;
+}
+
+@media only screen and (max-width: 600px) and (max-height: 900px) {
+    .list-order {
+        width: auto !important;
+        overflow-x: scroll;
+        font-size: 9px;
+    }
+
+    .myorder-content hr {
+        width: 192%;
+    }
+
+    .item-order img {
+        width: 25%;
+        height: 50%;
+    }
+
+    .item-size {
+        font-size:9px !important; 
+    }
+}

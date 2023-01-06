@@ -73,9 +73,9 @@ $(document).ready(function(){
 });
 
 $('.lisprod-item').owlCarousel({
-    loop:true,
-    margin:10,
-    nav:true,
+    // loop:false,
+    margin:5,
+    // nav:false,
     responsive:{
         0:{
             items:1
