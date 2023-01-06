@@ -217,8 +217,8 @@ a.item-menu {
 
     .cart-detail {
         top: 45px;
-        right: 242px;
-        width: auto !important;
+        right: 262px;
+        width: calc(100vh - 431px);
         height: auto !important;
         background-color: #fff;
         transform: translateX(100%);
